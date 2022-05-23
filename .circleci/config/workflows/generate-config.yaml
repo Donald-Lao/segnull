@@ -1,0 +1,8 @@
+jobs:
+    - path-filtering/filter:
+        mapping: |
+            src/.* build-code true
+            doc/.* build-docs true
+    - testing:
+          command: |
+              echo ${build-code}

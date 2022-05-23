@@ -9,6 +9,7 @@ workflows:
                     src/.* build-code true
                     doc/.* build-docs true
             - testing:
-                  command: |
-                      echo ${build-code}
-
+                  steps:
+                      -run:
+                          command: |
+                              echo ${build-code}
