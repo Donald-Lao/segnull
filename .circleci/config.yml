@@ -1,10 +1,24 @@
 version: 2.1
-orbs:
-    path-filtering: circleci/path-filtering@0.0.1
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/Donald-Lao/segnull/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  helloword:
+    environment:
+      COUNT: 1
+    executor: my-custom-executor
+    steps:
+      - checkout
+      - run: |
+          # echo Hello, World!
+
 workflows:
-    generate-config:
-        jobs:
-            - path-filtering/filter:
-                mapping: |
-                    src/.* build-code true
-                    doc/.* build-docs true
+  my-custom-workflow:
+    jobs:
+      - helloword
