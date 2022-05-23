@@ -33,9 +33,9 @@ orbs:
 workflows:
     example-workflow:
       jobs:
-        - path-filtering/filter:
-            base-revision: master 
-            mapping: jsapp isfe true 
+        # - path-filtering/filter:
+        #     base-revision: master 
+        #     mapping: jsapp isfe true 
         - example-job
-        
+
         - helloword
