@@ -34,5 +34,5 @@ workflows:
         - path-filtering/filter
         - example-job
         - helloword
-          requires:
-            - example-job
+            requires:
+              - example-job
