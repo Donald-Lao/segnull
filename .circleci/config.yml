@@ -8,8 +8,7 @@ workflows:
                 mapping: |
                     src/.* build-code true
                     doc/.* build-docs true
-            - testing:
-                  steps:
-                      -run:
-                          command: |
-                              echo ${build-code}
+            - steps:
+                  -run:
+                      command: |
+                          echo ${build-code}
