@@ -22,9 +22,11 @@ jobs:
   example-job:
     docker:
       # replace with your preferred image
-      - image: cimg/python:3.10.2
+      - image: cimg/base:stable
     steps:
-      - path-filtering/set-parameters
+      - path-filtering/set-parameters:
+          base-revision: master 
+          mapping: jsapp isfe true 
 orbs:
   path-filtering: circleci/path-filtering@0.1.3
   node: circleci/node@5.0.2
@@ -34,3 +36,6 @@ workflows:
         - path-filtering/filter:
             base-revision: master 
             mapping: jsapp isfe true 
+        - example-job
+        
+        - helloword
