@@ -32,5 +32,6 @@ workflows:
     example-workflow:
       jobs:
         - path-filtering/filter
+          base-revision: master
         - example-job
         - helloword
